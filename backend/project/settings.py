@@ -121,4 +121,4 @@ STATIC_URL = 'static/'
 
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'noreply@unify.local')
-ADMIN_EMAIL = os.getenv('ADMIN_EMAIL', 'admin@unify.local')
+ADMIN_EMAIL = os.getenv('ADMIN_EMAIL', 'oladiposamcharles@gmail.com')
