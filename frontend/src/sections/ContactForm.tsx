@@ -10,12 +10,18 @@ export default function ContactForm() {
           <div className="panel-soft rounded-3xl p-7 md:p-10 relative overflow-hidden">
             <div
               className="absolute -top-20 -left-20 w-52 h-52 rounded-full"
-              style={{ background: "radial-gradient(circle, rgba(31,107,255,0.25), transparent 72%)" }}
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(31,107,255,0.25), transparent 72%)",
+              }}
               aria-hidden="true"
             />
             <div
               className="absolute -bottom-24 right-0 w-64 h-64 rounded-full"
-              style={{ background: "radial-gradient(circle, rgba(6,112,46,0.22), transparent 74%)" }}
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(6,112,46,0.22), transparent 74%)",
+              }}
               aria-hidden="true"
             />
 
@@ -24,7 +30,8 @@ export default function ContactForm() {
               Talk to the Unify team.
             </h2>
             <p className="text-brand-ink/65 text-base leading-relaxed max-w-md mb-8">
-              Questions, partnerships, campus onboarding, or feedback. Send us a message and we will get back within 48 hours.
+              Questions, partnerships, campus onboarding, or feedback. Send us a
+              message and we will get back within 48 hours.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-3">
@@ -54,7 +61,9 @@ export default function ContactForm() {
             >
               <div className="grid sm:grid-cols-2 gap-4">
                 <label className="block">
-                  <span className="text-sm font-semibold text-brand-ink/70 mb-1.5 block">First Name</span>
+                  <span className="text-sm font-semibold text-brand-ink/70 mb-1.5 block">
+                    First Name
+                  </span>
                   <input
                     required
                     name="firstName"
@@ -64,7 +73,9 @@ export default function ContactForm() {
                   />
                 </label>
                 <label className="block">
-                  <span className="text-sm font-semibold text-brand-ink/70 mb-1.5 block">Last Name</span>
+                  <span className="text-sm font-semibold text-brand-ink/70 mb-1.5 block">
+                    Last Name
+                  </span>
                   <input
                     required
                     name="lastName"
@@ -76,7 +87,9 @@ export default function ContactForm() {
               </div>
 
               <label className="block">
-                <span className="text-sm font-semibold text-brand-ink/70 mb-1.5 block">Email</span>
+                <span className="text-sm font-semibold text-brand-ink/70 mb-1.5 block">
+                  Email
+                </span>
                 <input
                   required
                   name="email"
@@ -87,7 +100,9 @@ export default function ContactForm() {
               </label>
 
               <label className="block">
-                <span className="text-sm font-semibold text-brand-ink/70 mb-1.5 block">Topic</span>
+                <span className="text-sm font-semibold text-brand-ink/70 mb-1.5 block">
+                  Topic
+                </span>
                 <select
                   name="topic"
                   className="w-full rounded-2xl border border-brand-green/18 bg-white/85 px-4 py-3 text-sm outline-none transition-all duration-300 focus:border-brand-cobalt focus:shadow-[0_0_0_4px_rgba(31,107,255,0.13)]"
@@ -100,7 +115,9 @@ export default function ContactForm() {
               </label>
 
               <label className="block">
-                <span className="text-sm font-semibold text-brand-ink/70 mb-1.5 block">Message</span>
+                <span className="text-sm font-semibold text-brand-ink/70 mb-1.5 block">
+                  Message
+                </span>
                 <textarea
                   required
                   name="message"
@@ -110,11 +127,16 @@ export default function ContactForm() {
                 />
               </label>
 
-              <button type="submit" className="cta-primary rounded-full px-7 py-3.5 font-semibold text-sm">
+              <button
+                type="submit"
+                className="cta-primary rounded-full px-7 py-3.5 font-semibold text-sm"
+              >
                 Send Message
               </button>
 
-              <p className={`text-sm transition-all duration-300 ${submitted ? "text-brand-green opacity-100" : "text-brand-ink/45 opacity-70"}`}>
+              <p
+                className={`text-sm transition-all duration-300 ${submitted ? "text-brand-green opacity-100" : "text-brand-ink/45 opacity-70"}`}
+              >
                 {submitted
                   ? "Message captured. Hook this form to your backend endpoint to receive submissions."
                   : "We usually reply in less than 48 hours."}

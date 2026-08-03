@@ -44,9 +44,9 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer
-      className="text-white pt-16 pb-8 relative overflow-hidden"
+      className="pt-16 pb-8 relative overflow-hidden"
       style={{
-        background: "linear-gradient(160deg, #0b1d12, #113423 55%, #123f2a)",
+        background: "linear-gradient(165deg, #ffffff, #f7fbff 56%, #eff8f2)",
       }}
     >
       <div
@@ -54,7 +54,7 @@ export default function Footer() {
         aria-hidden="true"
       />
       <div
-        className="absolute -bottom-24 right-0 w-96 h-96 rounded-full bg-brand-green/30 blur-3xl"
+        className="absolute -bottom-24 right-0 w-96 h-96 rounded-full bg-brand-green/20 blur-3xl"
         aria-hidden="true"
       />
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -183,7 +183,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/55 text-sm">
+          <p className="text-brand-ink/55 text-sm">
             &copy; {new Date().getFullYear()} Unify. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
@@ -191,7 +191,7 @@ export default function Footer() {
               <a
                 key={l.label}
                 href={l.href}
-                className="text-white/55 text-sm hover:text-white transition-colors"
+                className="text-brand-ink/55 text-sm hover:text-brand-green transition-colors"
               >
                 {l.label}
               </a>
