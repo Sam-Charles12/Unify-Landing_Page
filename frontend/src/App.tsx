@@ -9,6 +9,7 @@ import Vision from "./sections/Vision";
 import ForUniversities from "./sections/ForUniversities";
 import About from "./sections/About";
 import FAQ from "./sections/FAQ";
+import ContactForm from "./sections/ContactForm";
 import FinalCTA from "./sections/FinalCTA";
 import Footer from "./sections/Footer";
 
@@ -42,6 +43,7 @@ export default function App() {
         <ForUniversities />
         <About />
         <FAQ />
+        <ContactForm />
         <FinalCTA />
       </main>
       <Footer />
