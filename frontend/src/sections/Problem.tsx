@@ -41,13 +41,8 @@ export default function Problem() {
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">
       <div
-        className="absolute inset-0 opacity-[0.06]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{ backgroundImage: 'radial-gradient(circle, #06702E 1.2px, transparent 1.2px)', backgroundSize: '28px 28px' }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full opacity-20"
-        style={{ background: 'radial-gradient(circle, rgba(6,112,46,0.35), transparent 70%)' }}
         aria-hidden="true"
       />
 
@@ -72,7 +67,7 @@ export default function Problem() {
             <div
               key={gap.title}
               className="glass-card bento-card rounded-3xl p-6 flex flex-col gap-4"
-              style={{ background: gap.bg === 'rgba(255,255,255,0.10)' ? 'linear-gradient(160deg, rgba(239,250,243,0.95), rgba(226,243,232,0.75))' : undefined }}
+              style={{ background: gap.bg === 'rgba(255,255,255,0.10)' ? 'rgba(239,250,243,0.9)' : undefined }}
             >
               <div className="flex items-start justify-between">
                 <div className="w-14 h-14 rounded-2xl bg-brand-green/10 flex items-center justify-center border border-brand-green/15">

@@ -5,222 +5,449 @@ import {
   faBookOpen,
 } from "@fortawesome/free-solid-svg-icons";
 
+function FloatCard({
+  className,
+  style,
+  children,
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      className={`animate-float ${className ?? ""}`}
+      style={style}
+      aria-hidden="true"
+    >
+      {children}
+    </div>
+  );
+}
+
+function GradeIllustration() {
+  return (
+    <svg
+      viewBox="0 0 132 96"
+      width="132"
+      height="96"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="4"
+        y="4"
+        width="112"
+        height="88"
+        rx="22"
+        fill="white"
+        fillOpacity="0.9"
+        stroke="rgba(6,112,46,0.18)"
+      />
+      <rect x="18" y="20" width="42" height="8" rx="4" fill="#06702E" fillOpacity="0.2" />
+      <rect x="18" y="36" width="30" height="5" rx="2.5" fill="#C6DECF" />
+      <rect
+        x="90"
+        y="18"
+        width="20"
+        height="12"
+        rx="6"
+        fill="#06702E"
+      />
+      <text
+        x="100"
+        y="27.5"
+        textAnchor="middle"
+        fontSize="8"
+        fontWeight="700"
+        fill="white"
+        fontFamily="Manrope"
+      >
+        +12%
+      </text>
+      <rect x="16" y="50" width="84" height="28" rx="10" fill="#EFF8F2" />
+      <circle cx="26" cy="60" r="3" fill="#1F6BFF" fillOpacity="0.35" />
+      <circle cx="42" cy="52" r="3" fill="#1F6BFF" fillOpacity="0.5" />
+      <circle cx="58" cy="66" r="3" fill="#1F6BFF" fillOpacity="0.5" />
+      <circle cx="74" cy="56" r="3" fill="#1F6BFF" fillOpacity="0.4" />
+      <circle cx="90" cy="64" r="3" fill="#1F6BFF" fillOpacity="0.4" />
+      <path
+        d="M24 70 C32 60 34 58 40 50 C46 44 52 68 58 62 C63 57 68 44 72 50 C77 58 80 48 84 50"
+        stroke="#06702E"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="90" cy="50" r="3" fill="#06702E" />
+    </svg>
+  );
+}
+
+function NoticeIllustration() {
+  return (
+    <svg
+      viewBox="0 0 120 110"
+      width="120"
+      height="110"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="4"
+        y="4"
+        width="106"
+        height="98"
+        rx="22"
+        fill="white"
+        fillOpacity="0.9"
+        stroke="rgba(255,185,71,0.32)"
+      />
+      <rect x="16" y="18" width="58" height="8" rx="4" fill="#E8B44C" fillOpacity="0.3" />
+      <rect x="16" y="32" width="40" height="5" rx="2.5" fill="#E8B44C" fillOpacity="0.5" />
+      <circle cx="90" cy="24" r="12" fill="#16702E" />
+      <path
+        d="M90 18v7l4 2"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="92" cy="21" r="6" fill="#16702E" />
+      <rect x="16" y="50" width="52" height="40" rx="10" fill="#FFEFD6" fillOpacity="0.6" />
+      <rect x="16" y="58" width="52" height="40" rx="10" fill="#FFEFD6" fillOpacity="0.7" />
+      <rect x="16" y="54" width="52" height="36" rx="10" fill="#FFF7E8" />
+      <path
+        d="M28 72L38 62L46 70L54 64"
+        stroke="#06702E"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="54" cy="64" r="3" fill="#06702E" />
+      <circle cx="78" cy="58" r="3" fill="#1F6BFF" />
+      <circle cx="86" cy="72" r="3" fill="#1F6BFF" fillOpacity="0.6" />
+      <circle cx="80" cy="84" r="3" fill="#1F6BFF" fillOpacity="0.4" />
+    </svg>
+  );
+}
+
+function ScheduleIllustration() {
+  return (
+    <svg
+      viewBox="0 0 120 112"
+      width="120"
+      height="112"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="4"
+        y="4"
+        width="106"
+        height="104"
+        rx="22"
+        fill="white"
+        fillOpacity="0.9"
+        stroke="rgba(31,107,255,0.22)"
+      />
+      <rect x="16" y="16" width="12" height="18" rx="3" fill="#1F6BFF" fillOpacity="0.35" />
+      <rect x="90" y="16" width="12" height="18" rx="3" fill="#1F6BFF" fillOpacity="0.35" />
+      <rect
+        x="14"
+        y="20"
+        width="90"
+        height="70"
+        rx="12"
+        fill="white"
+        stroke="rgba(31,107,255,0.25)"
+      />
+      <text
+        x="26"
+        y="34"
+        fontSize="10"
+        fontWeight="700"
+        fill="#112217"
+        fontFamily="Manrope"
+      >
+        Sep 2025
+      </text>
+      <g fontSize="7" fontWeight="600" fill="#112217" opacity="0.75" fontFamily="Manrope">
+        <text x="22" y="52">M</text>
+        <text x="40" y="52">T</text>
+        <text x="58" y="52">W</text>
+        <text x="76" y="52">T</text>
+        <text x="94" y="52">F</text>
+      </g>
+      <g fontSize="9" fontFamily="Manrope">
+        <text x="22" y="68" opacity="0.4">1</text>
+        <text x="40" y="68" opacity="0.4">2</text>
+        <text x="58" y="68" opacity="0.4">3</text>
+        <circle cx="76" cy="64" r="8" fill="#06702E" />
+        <text x="76" y="68" textAnchor="middle" fill="white" fontWeight="700">4</text>
+        <text x="94" y="68" opacity="0.4">5</text>
+        <text x="22" y="84" opacity="0.4">8</text>
+        <text x="40" y="84" opacity="0.4">9</text>
+        <text x="58" y="84" opacity="0.4">10</text>
+        <text x="76" y="84" opacity="0.4">11</text>
+        <text x="94" y="84" opacity="0.4">12</text>
+      </g>
+      <rect x="14" y="88" width="90" height="1" fill="#06702E" opacity="0.12" />
+    </svg>
+  );
+}
+
+function VerifiedIllustration() {
+  return (
+    <svg
+      viewBox="0 0 116 92"
+      width="116"
+      height="92"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="4"
+        y="4"
+        width="108"
+        height="84"
+        rx="22"
+        fill="white"
+        fillOpacity="0.9"
+        stroke="rgba(31,107,255,0.2)"
+      />
+      <circle cx="36" cy="44" r="22" fill="#06702E" />
+      <circle cx="36" cy="44" r="16" fill="white" fillOpacity="0.28" />
+      <path
+        d="M26 44l7 7 12-15"
+        stroke="white"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <rect x="70" y="24" width="8" height="14" rx="4" fill="#1F6BFF" fillOpacity="0.25" />
+      <rect x="82" y="24" width="8" height="14" rx="4" fill="#1F6BFF" fillOpacity="0.18" />
+      <rect x="94" y="36" width="8" height="10" rx="4" fill="#1F6BFF" fillOpacity="0.4" />
+      <rect x="70" y="44" width="8" height="30" rx="4" fill="#1F6BFF" fillOpacity="0.35" />
+      <rect x="82" y="52" width="8" height="22" rx="4" fill="#1F6BFF" fillOpacity="0.25" />
+    </svg>
+  );
+}
+
 function HeroIllustration() {
   return (
-    <div className="glass-card bento-card rounded-[28px] p-4 sm:p-5 max-w-4xl mx-auto">
-      <svg
-        viewBox="0 0 980 420"
-        className="w-full h-auto"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+    <div className="relative max-w-4xl mx-auto">
+      {/* Rotating decorative ring */}
+      <div
+        className="absolute inset-0 -z-10 m-auto animate-spin-slow pointer-events-none"
+        style={{
+          width: "103%",
+          height: "103%",
+          border: "2px dashed rgba(6,112,46,0.22)",
+          borderRadius: "999px",
+        }}
         aria-hidden="true"
-      >
-        <rect
-          x="10"
-          y="10"
-          width="960"
-          height="400"
-          rx="30"
-          fill="url(#panel)"
-          stroke="rgba(6,112,46,0.22)"
-        />
+      />
+      <div className="glass-card bento-card rounded-[28px] p-4 sm:p-5">
+        <svg
+          viewBox="0 0 980 420"
+          className="w-full h-auto"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <rect
+            x="10"
+            y="10"
+            width="960"
+            height="400"
+            rx="30"
+            fill="#F5FAF7"
+            stroke="rgba(6,112,46,0.22)"
+          />
 
-        <g opacity="0.35">
-          <path
-            d="M65 330H910"
+          <g opacity="0.35">
+            <path
+              d="M65 330H910"
+              stroke="#06702E"
+              strokeOpacity="0.25"
+              strokeDasharray="5 7"
+            />
+            <path
+              d="M65 275H910"
+              stroke="#06702E"
+              strokeOpacity="0.2"
+              strokeDasharray="5 7"
+            />
+            <path
+              d="M65 220H910"
+              stroke="#06702E"
+              strokeOpacity="0.15"
+              strokeDasharray="5 7"
+            />
+          </g>
+
+          <rect
+            x="80"
+            y="120"
+            width="170"
+            height="210"
+            rx="18"
+            fill="white"
+            fillOpacity="0.86"
             stroke="#06702E"
-            strokeOpacity="0.25"
-            strokeDasharray="5 7"
+            strokeOpacity="0.18"
+          />
+          <rect
+            x="104"
+            y="145"
+            width="80"
+            height="12"
+            rx="6"
+            fill="#06702E"
+            fillOpacity="0.18"
+          />
+          <rect x="104" y="168" width="120" height="8" rx="4" fill="#C6DECF" />
+          <rect x="104" y="184" width="106" height="8" rx="4" fill="#C6DECF" />
+          <rect x="104" y="200" width="126" height="8" rx="4" fill="#C6DECF" />
+          <rect x="104" y="230" width="126" height="76" rx="10" fill="#EEF7F1" />
+          <path
+            d="M120 272L143 251L160 261L196 236L216 246"
+            stroke="#06702E"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <circle cx="216" cy="246" r="7" fill="#06702E" />
+
+          <rect
+            x="286"
+            y="72"
+            width="406"
+            height="278"
+            rx="24"
+            fill="white"
+            fillOpacity="0.9"
+            stroke="#06702E"
+            strokeOpacity="0.23"
+          />
+          <rect
+            x="314"
+            y="102"
+            width="134"
+            height="16"
+            rx="8"
+            fill="#06702E"
+            fillOpacity="0.18"
+          />
+          <rect x="314" y="127" width="204" height="10" rx="5" fill="#D4E7DA" />
+
+          <rect x="314" y="160" width="152" height="164" rx="16" fill="#EFF8F2" />
+          <rect x="333" y="185" width="112" height="10" rx="5" fill="#D4E7DA" />
+          <rect x="333" y="204" width="86" height="10" rx="5" fill="#D4E7DA" />
+          <rect
+            x="333"
+            y="229"
+            width="26"
+            height="74"
+            rx="7"
+            fill="#06702E"
+            fillOpacity="0.22"
+          />
+          <rect
+            x="367"
+            y="213"
+            width="26"
+            height="90"
+            rx="7"
+            fill="#06702E"
+            fillOpacity="0.35"
+          />
+          <rect
+            x="401"
+            y="244"
+            width="26"
+            height="59"
+            rx="7"
+            fill="#06702E"
+            fillOpacity="0.48"
+          />
+
+          <rect
+            x="484"
+            y="160"
+            width="180"
+            height="77"
+            rx="16"
+            fill="#06702E"
+            fillOpacity="0.07"
           />
           <path
-            d="M65 275H910"
+            d="M508 214L534 192L559 200L590 173L636 182"
+            stroke="#06702E"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <circle cx="590" cy="173" r="6" fill="#06702E" />
+          <circle cx="636" cy="182" r="6" fill="#06702E" />
+
+          <rect
+            x="484"
+            y="247"
+            width="180"
+            height="77"
+            rx="16"
+            fill="#06702E"
+            fillOpacity="0.05"
+          />
+          <rect
+            x="506"
+            y="270"
+            width="66"
+            height="12"
+            rx="6"
+            fill="#06702E"
+            fillOpacity="0.28"
+          />
+          <rect x="506" y="289" width="129" height="9" rx="4" fill="#C6DECF" />
+
+          <rect
+            x="716"
+            y="110"
+            width="184"
+            height="204"
+            rx="20"
+            fill="white"
+            fillOpacity="0.85"
             stroke="#06702E"
             strokeOpacity="0.2"
-            strokeDasharray="5 7"
           />
+          <rect
+            x="742"
+            y="138"
+            width="98"
+            height="14"
+            rx="7"
+            fill="#06702E"
+            fillOpacity="0.18"
+          />
+          <circle cx="755" cy="176" r="8" fill="#06702E" fillOpacity="0.28" />
+          <rect x="772" y="170" width="96" height="10" rx="5" fill="#D4E7DA" />
+          <circle cx="755" cy="204" r="8" fill="#06702E" fillOpacity="0.28" />
+          <rect x="772" y="198" width="72" height="10" rx="5" fill="#D4E7DA" />
+          <circle cx="755" cy="232" r="8" fill="#06702E" fillOpacity="0.28" />
+          <rect x="772" y="226" width="86" height="10" rx="5" fill="#D4E7DA" />
+
+          <rect x="742" y="258" width="126" height="34" rx="17" fill="#06702E" />
           <path
-            d="M65 220H910"
-            stroke="#06702E"
-            strokeOpacity="0.15"
-            strokeDasharray="5 7"
+            d="M774 275L790 290L835 251"
+            stroke="white"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
-        </g>
-
-        <rect
-          x="80"
-          y="120"
-          width="170"
-          height="210"
-          rx="18"
-          fill="white"
-          fillOpacity="0.86"
-          stroke="#06702E"
-          strokeOpacity="0.18"
-        />
-        <rect
-          x="104"
-          y="145"
-          width="80"
-          height="12"
-          rx="6"
-          fill="#06702E"
-          fillOpacity="0.18"
-        />
-        <rect x="104" y="168" width="120" height="8" rx="4" fill="#C6DECF" />
-        <rect x="104" y="184" width="106" height="8" rx="4" fill="#C6DECF" />
-        <rect x="104" y="200" width="126" height="8" rx="4" fill="#C6DECF" />
-        <rect x="104" y="230" width="126" height="76" rx="10" fill="#EEF7F1" />
-        <path
-          d="M120 272L143 251L160 261L196 236L216 246"
-          stroke="#06702E"
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="216" cy="246" r="7" fill="#06702E" />
-
-        <rect
-          x="286"
-          y="72"
-          width="406"
-          height="278"
-          rx="24"
-          fill="white"
-          fillOpacity="0.9"
-          stroke="#06702E"
-          strokeOpacity="0.23"
-        />
-        <rect
-          x="314"
-          y="102"
-          width="134"
-          height="16"
-          rx="8"
-          fill="#06702E"
-          fillOpacity="0.18"
-        />
-        <rect x="314" y="127" width="204" height="10" rx="5" fill="#D4E7DA" />
-
-        <rect x="314" y="160" width="152" height="164" rx="16" fill="#EFF8F2" />
-        <rect x="333" y="185" width="112" height="10" rx="5" fill="#D4E7DA" />
-        <rect x="333" y="204" width="86" height="10" rx="5" fill="#D4E7DA" />
-        <rect
-          x="333"
-          y="229"
-          width="26"
-          height="74"
-          rx="7"
-          fill="#06702E"
-          fillOpacity="0.22"
-        />
-        <rect
-          x="367"
-          y="213"
-          width="26"
-          height="90"
-          rx="7"
-          fill="#06702E"
-          fillOpacity="0.35"
-        />
-        <rect
-          x="401"
-          y="244"
-          width="26"
-          height="59"
-          rx="7"
-          fill="#06702E"
-          fillOpacity="0.48"
-        />
-
-        <rect
-          x="484"
-          y="160"
-          width="180"
-          height="77"
-          rx="16"
-          fill="#06702E"
-          fillOpacity="0.08"
-        />
-        <path
-          d="M508 214L534 192L559 201L590 174L636 182"
-          stroke="#06702E"
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="590" cy="174" r="6" fill="#06702E" />
-        <circle cx="636" cy="182" r="6" fill="#06702E" />
-
-        <rect
-          x="484"
-          y="247"
-          width="180"
-          height="77"
-          rx="16"
-          fill="#06702E"
-          fillOpacity="0.06"
-        />
-        <rect
-          x="506"
-          y="270"
-          width="66"
-          height="12"
-          rx="6"
-          fill="#06702E"
-          fillOpacity="0.28"
-        />
-        <rect x="506" y="289" width="129" height="9" rx="4" fill="#C6DECF" />
-
-        <rect
-          x="716"
-          y="110"
-          width="184"
-          height="204"
-          rx="20"
-          fill="white"
-          fillOpacity="0.85"
-          stroke="#06702E"
-          strokeOpacity="0.2"
-        />
-        <rect
-          x="742"
-          y="138"
-          width="98"
-          height="14"
-          rx="7"
-          fill="#06702E"
-          fillOpacity="0.18"
-        />
-        <circle cx="755" cy="176" r="8" fill="#06702E" fillOpacity="0.28" />
-        <rect x="772" y="170" width="96" height="10" rx="5" fill="#D4E7DA" />
-        <circle cx="755" cy="204" r="8" fill="#06702E" fillOpacity="0.28" />
-        <rect x="772" y="198" width="72" height="10" rx="5" fill="#D4E7DA" />
-        <circle cx="755" cy="232" r="8" fill="#06702E" fillOpacity="0.28" />
-        <rect x="772" y="226" width="86" height="10" rx="5" fill="#D4E7DA" />
-
-        <rect x="742" y="258" width="126" height="34" rx="17" fill="#06702E" />
-        <path
-          d="M774 275L790 290L835 251"
-          stroke="white"
-          strokeWidth="5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-
-        <defs>
-          <linearGradient
-            id="panel"
-            x1="95"
-            y1="35"
-            x2="900"
-            y2="388"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="white" stopOpacity="0.86" />
-            <stop offset="1" stopColor="#E7F4EB" stopOpacity="0.84" />
-          </linearGradient>
-        </defs>
-      </svg>
+        </svg>
+      </div>
     </div>
   );
 }
@@ -228,20 +455,39 @@ function HeroIllustration() {
 export default function Hero() {
   return (
     <section className="relative pt-24 pb-10 overflow-hidden flex flex-col items-center">
-      {/* Subtle radial wash */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-130 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 0%, rgba(2,125,53,0.07) 0%, transparent 70%)",
-        }}
-        aria-hidden="true"
-      />
-
       <div className="relative max-w-5xl mx-auto px-6 text-center pt-16 pb-10">
+        {/* Floating premium illustrations around the headline */}
+        <FloatCard
+          className="absolute hidden md:block top-8 -left-4 lg:-left-24"
+          style={{ animationDuration: "7s" }}
+        >
+          <GradeIllustration />
+        </FloatCard>
+        <FloatCard
+          className="absolute hidden lg:block top-1/2 -right-6 xl:-right-16 -translate-y-1/2"
+          style={{ animationDuration: "8.5s", animationDelay: "1.2s" }}
+        >
+          <ScheduleIllustration />
+        </FloatCard>
+        <FloatCard
+          className="absolute hidden md:block top-16 right-2 lg:right-12 xl:-right-8"
+          style={{ animationDuration: "7.5s", animationDelay: "0.6s" }}
+        >
+          <NoticeIllustration />
+        </FloatCard>
+        <FloatCard
+          className="absolute hidden md:block bottom-2 -left-6 lg:-left-16"
+          style={{ animationDuration: "6.5s", animationDelay: "2s" }}
+        >
+          <VerifiedIllustration />
+        </FloatCard>
+
         {/* Live badge */}
         <div className="inline-flex items-center gap-2 bg-brand-green/8 border border-brand-green/20 text-brand-green text-xs font-semibold px-4 py-2 rounded-full mb-10">
-          <span className="w-1.5 h-1.5 bg-brand-green rounded-full animate-pulse" />
+          <span className="relative w-2 h-2">
+            <span className="absolute inset-0 rounded-full bg-brand-green animate-ping opacity-75" />
+            <span className="relative block w-2 h-2 rounded-full bg-brand-green" />
+          </span>
           Now live · Lagos State University
         </div>
 
@@ -305,7 +551,7 @@ export default function Hero() {
                 key={item.tag}
                 className="px-4 py-2 text-[11px] font-semibold tracking-wide rounded-full border"
                 style={{
-                  background: `linear-gradient(135deg, ${item.tone}, rgba(255,255,255,0.7))`,
+                  background: item.tone,
                   borderColor: "rgba(6,112,46,0.2)",
                 }}
               >

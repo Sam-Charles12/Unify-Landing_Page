@@ -59,7 +59,7 @@ function CampusOpsIllustration() {
           width="600"
           height="400"
           rx="28"
-          fill="url(#campusBg)"
+          fill="#F5FAF7"
           stroke="rgba(6,112,46,0.24)"
         />
 
@@ -210,19 +210,6 @@ function CampusOpsIllustration() {
           Engage
         </text>
 
-        <defs>
-          <linearGradient
-            id="campusBg"
-            x1="60"
-            y1="28"
-            x2="540"
-            y2="388"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor="white" stopOpacity="0.9" />
-            <stop offset="1" stopColor="#E7F4EB" stopOpacity="0.84" />
-          </linearGradient>
-        </defs>
       </svg>
 
       <div className="absolute top-5 right-5 bg-brand-green/10 rounded-xl px-3 py-2 flex items-center gap-1.5 border border-brand-green/20">

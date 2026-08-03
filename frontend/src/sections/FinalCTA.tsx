@@ -12,23 +12,7 @@ export default function FinalCTA() {
         aria-hidden="true"
       />
 
-      {/* Decorative circle */}
-      <div
-        className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full opacity-50"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(31,107,255,0.28), transparent 70%)",
-        }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute -top-20 -right-20 w-72 h-72 rounded-full opacity-45"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(6,112,46,0.22), transparent 70%)",
-        }}
-        aria-hidden="true"
-      />
+      {/* Decorative circle removed for flat look */}
 
       <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
         <div className="panel-soft rounded-4xl px-6 py-12 md:px-12 md:py-14">

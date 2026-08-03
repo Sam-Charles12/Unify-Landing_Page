@@ -421,7 +421,7 @@ export default function ProductShowcase() {
             <div
               className="rounded-2xl p-5 text-white"
               style={{
-                background: "linear-gradient(140deg, #1f6bff, #06702e)",
+                background: "#1f6bff",
               }}
             >
               <p className="text-[11px] font-semibold uppercase tracking-widest text-white/70 mb-3">

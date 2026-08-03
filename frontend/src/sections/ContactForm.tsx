@@ -8,23 +8,6 @@ export default function ContactForm() {
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 items-stretch">
           <div className="panel-soft rounded-3xl p-7 md:p-10 relative overflow-hidden">
-            <div
-              className="absolute -top-20 -left-20 w-52 h-52 rounded-full"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(31,107,255,0.25), transparent 72%)",
-              }}
-              aria-hidden="true"
-            />
-            <div
-              className="absolute -bottom-24 right-0 w-64 h-64 rounded-full"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(6,112,46,0.22), transparent 74%)",
-              }}
-              aria-hidden="true"
-            />
-
             <p className="section-kicker mb-4">Contact</p>
             <h2 className="font-display text-4xl lg:text-5xl font-700 leading-tight mb-5">
               Talk to the Unify team.

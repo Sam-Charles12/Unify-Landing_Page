@@ -46,7 +46,7 @@ export default function Footer() {
     <footer
       className="pt-16 pb-8 relative overflow-hidden"
       style={{
-        background: "linear-gradient(165deg, #ffffff, #f7fbff 56%, #eff8f2)",
+        background: "#f6faf7",
       }}
     >
       <div

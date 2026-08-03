@@ -136,22 +136,22 @@ export default function Features() {
               "sm:col-span-3 lg:col-span-4",
               "sm:col-span-6 lg:col-span-4",
             ];
-            const isGradient = i === 0 || i === 5 || i === 8;
-            const gradientBg =
+            const isAccent = i === 0 || i === 5 || i === 8;
+            const accentBg =
               i === 0
-                ? "linear-gradient(145deg, #06702E, #1F6BFF)"
+                ? "#1F6BFF"
                 : i === 5
-                  ? "linear-gradient(145deg, #055525, #0A8B3D)"
-                  : "linear-gradient(145deg, #1F6BFF, #06702E)";
+                  ? "#055525"
+                  : "#06702E";
             return (
               <div
                 key={f.title}
                 className={`rounded-3xl p-7 group cursor-default transition-all duration-300 hover:-translate-y-1 bento-card ${sizeClasses[i]}`}
                 style={{
-                  background: isGradient
-                    ? gradientBg
-                    : "linear-gradient(145deg, rgba(255,255,255,0.84), rgba(231,244,235,0.62))",
-                  border: isGradient
+                  background: isAccent
+                    ? accentBg
+                    : "rgba(255,255,255,0.84)",
+                  border: isAccent
                     ? "1px solid rgba(255,255,255,0.2)"
                     : "1px solid rgba(6,112,46,0.16)",
                   boxShadow: "0 14px 32px rgba(6,112,46,0.12)",
@@ -160,7 +160,7 @@ export default function Features() {
                 <div
                   className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
                   style={{
-                    background: isGradient
+                    background: isAccent
                       ? "rgba(255,255,255,0.14)"
                       : f.accentBg,
                   }}
@@ -168,7 +168,7 @@ export default function Features() {
                   <FontAwesomeIcon
                     icon={f.icon}
                     style={{
-                      color: isGradient ? "rgba(255,255,255,0.92)" : f.accent,
+                      color: isAccent ? "rgba(255,255,255,0.92)" : f.accent,
                       fontSize: "1.1rem",
                     }}
                   />
@@ -176,24 +176,24 @@ export default function Features() {
                 <div
                   className="inline-flex items-center text-[10px] font-semibold px-2.5 py-1 rounded-full mb-3"
                   style={{
-                    background: isGradient
+                    background: isAccent
                       ? "rgba(255,255,255,0.14)"
                       : f.accentBg,
-                    color: isGradient ? "rgba(255,255,255,0.72)" : f.accent,
+                    color: isAccent ? "rgba(255,255,255,0.72)" : f.accent,
                   }}
                 >
                   {f.tag}
                 </div>
                 <h3
                   className="font-semibold text-base mb-2"
-                  style={{ color: isGradient ? "white" : "#0C1810" }}
+                  style={{ color: isAccent ? "white" : "#0C1810" }}
                 >
                   {f.title}
                 </h3>
                 <p
                   className="text-sm leading-relaxed"
                   style={{
-                    color: isGradient
+                    color: isAccent
                       ? "rgba(255,255,255,0.74)"
                       : "rgba(12,24,16,0.58)",
                   }}

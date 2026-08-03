@@ -44,26 +44,13 @@ function TestimonialAvatar({
       className="w-10 h-10 rounded-full border border-brand-green/15"
       aria-hidden="true"
     >
-      <defs>
-        <linearGradient
-          id={`g-${initials}`}
-          x1="14"
-          y1="8"
-          x2="66"
-          y2="72"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="#DFF0E5" />
-        </linearGradient>
-      </defs>
       <rect
         x="0"
         y="0"
         width="80"
         height="80"
         rx="40"
-        fill={`url(#g-${initials})`}
+        fill="#F0F8F3"
       />
       <circle cx="40" cy="30" r="13" fill={accent} fillOpacity="0.2" />
       <path

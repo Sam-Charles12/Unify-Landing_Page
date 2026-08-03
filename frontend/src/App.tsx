@@ -17,16 +17,16 @@ export default function App() {
   return (
     <div className="min-h-screen relative overflow-x-clip pb-3">
       <div
-        className="ambient-blob w-72 h-72 -top-20 -left-16 bg-brand-green/20"
+        className="ambient-blob w-72 h-72 -top-20 -left-16 bg-brand-green/10"
         aria-hidden="true"
       />
       <div
-        className="ambient-blob w-80 h-80 top-[22%] -right-24 bg-emerald-300/25"
+        className="ambient-blob w-80 h-80 top-[22%] -right-24 bg-emerald-300/12"
         style={{ animationDelay: "2s" }}
         aria-hidden="true"
       />
       <div
-        className="ambient-blob w-64 h-64 bottom-24 left-[40%] bg-lime-200/30"
+        className="ambient-blob w-64 h-64 bottom-24 left-[40%] bg-lime-200/14"
         style={{ animationDelay: "1s" }}
         aria-hidden="true"
       />

@@ -81,7 +81,7 @@ export default function HowItWorks() {
           {/* Connector line — desktop only */}
           <div
             className="hidden sm:block absolute top-10 left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] h-px"
-            style={{ background: 'linear-gradient(to right, rgba(224,226,219,0), #027D35, rgba(224,226,219,0))' }}
+            style={{ background: '#027D35' }}
             aria-hidden="true"
           />
 

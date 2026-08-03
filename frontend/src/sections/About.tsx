@@ -11,7 +11,7 @@ const values: { icon: IconDefinition; title: string; description: string }[] = [
 
 export default function About() {
   return (
-    <section className="bg-brand-surface/40 py-24 lg:py-32">
+    <section className="bg-brand-surface/40 py-24 lg:py-32" id="about">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>
