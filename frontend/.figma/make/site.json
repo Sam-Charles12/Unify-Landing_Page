@@ -1,0 +1,10 @@
+{
+  "description": "Connect with a diverse range of online courses and educational resources, empowering learners to enhance their skills and knowledge effectively.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
