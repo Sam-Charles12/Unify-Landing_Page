@@ -1,7 +1,69 @@
-import { useState } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
+
+type StatusState = {
+  type: "success" | "error" | null;
+  message: string;
+};
+
+const initialFormState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  topic: "Student support",
+  message: "",
+};
 
 export default function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState(initialFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<StatusState>({ type: null, message: "" });
+
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: null, message: "" });
+
+    try {
+      const payload = {
+        name: `${formData.firstName} ${formData.lastName}`.trim(),
+        email: formData.email,
+        topic: formData.topic,
+        message: formData.message,
+      };
+
+      const response = await fetch("/api/contact/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        throw new Error(data?.error || "Unable to send your message right now.");
+      }
+
+      setStatus({
+        type: "success",
+        message: data?.message || "Your message has been sent successfully. We will get back to you soon.",
+      });
+      setFormData(initialFormState);
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: error instanceof Error ? error.message : "Unable to send your message right now.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="py-24 lg:py-32">
@@ -35,13 +97,7 @@ export default function ContactForm() {
           </div>
 
           <div className="glass-card rounded-3xl p-7 md:p-10 bento-card">
-            <form
-              className="space-y-4"
-              onSubmit={(event) => {
-                event.preventDefault();
-                setSubmitted(true);
-              }}
-            >
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="grid sm:grid-cols-2 gap-4">
                 <label className="block">
                   <span className="text-sm font-semibold text-brand-ink/70 mb-1.5 block">
@@ -52,6 +108,8 @@ export default function ContactForm() {
                     name="firstName"
                     type="text"
                     placeholder="Amina"
+                    value={formData.firstName}
+                    onChange={handleChange}
                     className="w-full rounded-2xl border border-brand-green/18 bg-white/85 px-4 py-3 text-sm outline-none transition-all duration-300 focus:border-brand-cobalt focus:shadow-[0_0_0_4px_rgba(31,107,255,0.13)]"
                   />
                 </label>
@@ -64,6 +122,8 @@ export default function ContactForm() {
                     name="lastName"
                     type="text"
                     placeholder="Okafor"
+                    value={formData.lastName}
+                    onChange={handleChange}
                     className="w-full rounded-2xl border border-brand-green/18 bg-white/85 px-4 py-3 text-sm outline-none transition-all duration-300 focus:border-brand-cobalt focus:shadow-[0_0_0_4px_rgba(31,107,255,0.13)]"
                   />
                 </label>
@@ -78,6 +138,8 @@ export default function ContactForm() {
                   name="email"
                   type="email"
                   placeholder="you@university.edu"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full rounded-2xl border border-brand-green/18 bg-white/85 px-4 py-3 text-sm outline-none transition-all duration-300 focus:border-brand-cobalt focus:shadow-[0_0_0_4px_rgba(31,107,255,0.13)]"
                 />
               </label>
@@ -88,6 +150,8 @@ export default function ContactForm() {
                 </span>
                 <select
                   name="topic"
+                  value={formData.topic}
+                  onChange={handleChange}
                   className="w-full rounded-2xl border border-brand-green/18 bg-white/85 px-4 py-3 text-sm outline-none transition-all duration-300 focus:border-brand-cobalt focus:shadow-[0_0_0_4px_rgba(31,107,255,0.13)]"
                 >
                   <option>Student support</option>
@@ -106,23 +170,24 @@ export default function ContactForm() {
                   name="message"
                   rows={5}
                   placeholder="Tell us what you need..."
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full rounded-2xl border border-brand-green/18 bg-white/85 px-4 py-3 text-sm outline-none transition-all duration-300 resize-none focus:border-brand-cobalt focus:shadow-[0_0_0_4px_rgba(31,107,255,0.13)]"
                 />
               </label>
 
               <button
                 type="submit"
-                className="cta-primary rounded-full px-7 py-3.5 font-semibold text-sm"
+                disabled={isSubmitting}
+                className="cta-primary rounded-full px-7 py-3.5 font-semibold text-sm disabled:cursor-not-allowed disabled:opacity-70"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
 
               <p
-                className={`text-sm transition-all duration-300 ${submitted ? "text-brand-green opacity-100" : "text-brand-ink/45 opacity-70"}`}
+                className={`text-sm transition-all duration-300 ${status.type === "success" ? "text-brand-green opacity-100" : status.type === "error" ? "text-red-600 opacity-100" : "text-brand-ink/45 opacity-70"}`}
               >
-                {submitted
-                  ? "Message captured. Hook this form to your backend endpoint to receive submissions."
-                  : "We usually reply in less than 48 hours."}
+                {status.message || "We usually reply in less than 48 hours."}
               </p>
             </form>
           </div>
