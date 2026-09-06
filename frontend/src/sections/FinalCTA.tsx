@@ -36,7 +36,9 @@ export default function FinalCTA() {
           {/* CTA buttons */}
           <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
             <a
-              href="#"
+              href="https://unifyhub.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-primary font-semibold px-8 py-4 rounded-full transition-all duration-200 text-base shadow-xl"
             >
               Start Learning — It&apos;s Free

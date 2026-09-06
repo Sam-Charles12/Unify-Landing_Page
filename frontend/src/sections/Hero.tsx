@@ -288,7 +288,9 @@ export default function Hero() {
         {/* CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-14">
           <a
-            href="#"
+            href="https://unifyhub.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-brand-green text-white font-semibold px-8 py-4 rounded-full text-base shadow-lg shadow-brand-green/25 hover:bg-brand-forest hover:shadow-xl hover:shadow-brand-green/30 hover:-translate-y-0.5 transition-all duration-300"
           >
             Start Learning — Free

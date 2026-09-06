@@ -111,13 +111,17 @@ export default function Navbar() {
           {/* CTAs */}
           <div className="hidden md:flex items-center gap-2.5">
             <a
-              href="#"
+              href="https://unifyhub.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm font-semibold text-brand-ink/60 hover:text-brand-ink transition-all duration-300 px-4 py-2 rounded-full hover:bg-brand-green/5"
             >
               Sign in
             </a>
             <a
-              href="#"
+              href="https://unifyhub.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-primary text-sm font-semibold px-5 py-2.5 rounded-full hover:-translate-y-px hover:shadow-xl hover:shadow-brand-green/25 transition-all duration-300"
             >
               Start Learning
@@ -178,7 +182,9 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#"
+            href="https://unifyhub.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
             className="cta-primary text-sm font-semibold px-5 py-2.5 rounded-full text-center mt-1 transition-colors duration-200"
           >
             Start Learning

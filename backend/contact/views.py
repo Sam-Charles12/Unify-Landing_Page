@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.core.mail import BadHeaderError, send_mail
+from django.core.mail import BadHeaderError, EmailMessage
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
@@ -31,15 +31,16 @@ class SubmitContactFormView(APIView):
             f"Message:\n{data['message']}"
         )
 
+        email = EmailMessage(
+            subject,
+            message,
+            settings.DEFAULT_FROM_EMAIL,
+            [settings.ADMIN_EMAIL],
+            reply_to=[data['email']],
+        )
+
         try:
-            send_mail(
-                subject,
-                message,
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.ADMIN_EMAIL],
-                fail_silently=False,
-                reply_to=[data['email']],
-            )
+            email.send(fail_silently=False)
         except BadHeaderError:
             return Response(
                 {'error': 'The message could not be sent because it contained invalid header values.'},

@@ -43,61 +43,133 @@ const steps = [
     label: 'Set up your profile',
     title: 'Choose your university and courses',
     description: 'Create your academic profile in minutes. Select your institution, faculty, and course load — Unify personalises everything to match your curriculum.',
-    detail: 'Lagos State University · University of Lagos · and more',
+    details: ['Lagos State University', 'University of Lagos', 'and more'],
   },
   {
     number: '02',
     label: 'Start studying',
     title: 'Study smarter with structured weekly learning',
     description: 'Work through weekly modules, interactive quizzes, and curated resources built around your actual course syllabus. No guesswork — just clear, measurable progress.',
-    detail: 'Weekly modules · Live quizzes · Resource library',
+    details: ['Weekly modules', 'Live quizzes', 'Resource library'],
   },
   {
     number: '03',
     label: 'Stay in control',
     title: 'Track progress, get updates, grab opportunities',
     description: 'Monitor your GPA in real time, receive all faculty announcements in one place, and discover scholarships, internships, and competitions matched to your profile.',
-    detail: 'GPA tracker · Smart alerts · Opportunity feed',
+    details: ['GPA tracker', 'Smart alerts', 'Opportunity feed'],
   },
 ]
 
 export default function HowItWorks() {
   return (
-    <section className="py-24 lg:py-32" id="how-it-works">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section className="relative py-24 lg:py-32 overflow-hidden" id="how-it-works">
+      {/* Decorative dots — very subtle */}
+      <div
+        className="absolute inset-0 opacity-[0.035]"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle, #06702E 1.2px, transparent 1.2px)',
+          backgroundSize: '30px 30px',
+        }}
+        aria-hidden="true"
+      />
 
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <div className="brand-pill text-xs font-semibold px-4 py-2 mb-6">
+            <span className="relative w-1.5 h-1.5">
+              <span className="absolute inset-0 rounded-full bg-brand-green animate-ping opacity-60" />
+              <span className="relative block w-1.5 h-1.5 rounded-full bg-brand-green" />
+            </span>
             How It Works
           </div>
-          <h2 className="font-display text-4xl lg:text-5xl font-700 text-brand-ink leading-tight max-w-xl mx-auto">
-            Three steps to take control of your academic journey
+          <h2 className="font-display text-4xl lg:text-5xl font-700 text-brand-ink leading-tight max-w-2xl mx-auto">
+            Three steps to take control of your{' '}
+            <span className="italic text-brand-green">academic journey</span>
           </h2>
+          <p className="text-brand-ink/55 text-lg mt-5 max-w-xl mx-auto">
+            From your first sign-in to your next big opportunity — Unify moves
+            with you, step by step.
+          </p>
         </div>
 
         {/* Steps */}
-        <div className="grid sm:grid-cols-3 gap-5 lg:gap-6 relative">
-          {/* Connector line — desktop only */}
+        <div className="relative">
+          {/* Animated connector — desktop only */}
           <div
-            className="hidden sm:block absolute top-10 left-[calc(16.67%+20px)] right-[calc(16.67%+20px)] h-px"
-            style={{ background: '#027D35' }}
+            className="hidden lg:block absolute top-16 left-[12%] right-[12%] step-track"
             aria-hidden="true"
-          />
+          >
+            <span className="travel-dot" style={{ animationDelay: '0s' }} />
+            <span
+              className="travel-dot"
+              style={{ animationDelay: '1.3s' }}
+            />
+          </div>
 
-          {steps.map((step, i) => (
-            <div key={step.number} className="relative flex flex-col items-center sm:items-start text-center sm:text-left glass-card bento-card rounded-3xl p-6 sm:p-7">
-              {/* Illustration */}
-              <div className="w-20 h-20 mb-6 relative z-10">
-                {stepIllustrations[i]}
+          <div className="grid sm:grid-cols-3 gap-5 lg:gap-6">
+            {steps.map((step, i) => (
+              <div
+                key={step.number}
+                className="how-card group relative flex flex-col items-center text-center glass-card rounded-[26px] px-6 sm:px-7 py-9 overflow-hidden transition-all duration-300 hover:-translate-y-2"
+                style={{ animationDelay: `${120 + i * 160}ms` }}
+              >
+                {/* Ghost number */}
+                <span
+                  className="absolute -top-4 right-3 font-display font-900 text-[88px] leading-none select-none transition-all duration-500 group-hover:scale-110 group-hover:opacity-20"
+                  style={{ color: 'rgba(6,112,46,0.07)' }}
+                  aria-hidden="true"
+                >
+                  {step.number}
+                </span>
+
+                {/* Illustration chip — floats */}
+                <div
+                  className="how-chip w-24 h-24 mb-6 relative flex items-center justify-center animate-float"
+                  style={{ animationDuration: `${6 + i}s`, animationDelay: `${i * 0.7}s` }}
+                >
+                  <span
+                    className="absolute inset-0 rounded-full bg-brand-green/8 border border-brand-green/15"
+                    aria-hidden="true"
+                  />
+                  <span className="relative">{stepIllustrations[i]}</span>
+                </div>
+
+                {/* Label chip */}
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-green bg-brand-green/8 border border-brand-green/15 rounded-full px-3 py-1.5 mb-4">
+                  <span className="w-1 h-1 rounded-full bg-brand-green" />
+                  {step.label}
+                </span>
+
+                <h3 className="font-semibold text-lg text-brand-ink mb-3 leading-snug">
+                  {step.title}
+                </h3>
+                <p className="text-brand-ink/55 text-sm leading-relaxed mb-5">
+                  {step.description}
+                </p>
+
+                {/* Detail chips */}
+                <div className="flex flex-wrap items-center justify-center gap-1.5 mt-auto">
+                  {step.details.map((detail) => (
+                    <span
+                      key={detail}
+                      className="text-[11px] font-medium text-brand-ink/60 bg-white border border-brand-green/12 rounded-full px-2.5 py-1 transition-colors duration-300 group-hover:border-brand-green/30"
+                    >
+                      {detail}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Bottom accent line that grows on hover */}
+                <span
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[3px] rounded-full bg-brand-green/70 transition-all duration-500 group-hover:w-2/3"
+                  aria-hidden="true"
+                />
               </div>
-
-              <p className="text-[10px] font-semibold text-brand-green uppercase tracking-widest mb-2">{step.label}</p>
-              <h3 className="font-semibold text-lg text-brand-ink mb-3 leading-snug">{step.title}</h3>
-              <p className="text-brand-ink/55 text-sm leading-relaxed mb-3">{step.description}</p>
-              <p className="text-brand-green text-xs font-medium">{step.detail}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -173,7 +173,9 @@ export default function Footer() {
               Free for all students. No credit card needed.
             </p>
             <a
-              href="#"
+              href="https://unifyhub.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex bg-brand-green text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-brand-forest transition-colors"
             >
               Start Learning
