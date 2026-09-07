@@ -184,7 +184,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-brand-green/12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-brand-ink/55 text-sm">
             &copy; {new Date().getFullYear()} Unify. All rights reserved.
           </p>
